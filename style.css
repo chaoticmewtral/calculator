@@ -1,0 +1,42 @@
+body {
+    width: 100%;
+    margin: 0 auto;
+    border: 1px solid black;
+    display: block;
+}
+
+#calculator {
+    width: 500px;
+    height: 800 px;
+    margin: 10px auto;
+    background-color: gray;
+}
+
+#display {
+    margin: 10px;
+    padding: 8px;
+    background-color: rgb(139, 147, 139);
+    text-align: right;
+    font-family: Orbitron;
+    font-size: 30px;
+}
+
+#buttons {
+    display: flex;
+    flex-flow: column;
+    margin: 10px;
+}
+
+#top-row {
+    display: flex;
+}
+
+#clear {
+    width: 30%;
+}
+
+#solar {
+    width: 50%;
+    height: 30px;
+    margin: 0 5px;
+}
