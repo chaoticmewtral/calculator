@@ -3,7 +3,7 @@ let a = ''; // first operand
 let b = ''; // second operand
 let operator;
 let displayValue;
-let number;
+let num;
 
 const numbers = document.querySelectorAll('.num');
 const display = document.querySelector('#display');
@@ -12,14 +12,25 @@ const operators = document.querySelectorAll('.ops')
 
 
 // event listeners
-numbers.forEach(number => number.addEventListener('click', num));
-window.addEventListener('keydown', getKey)
+numbers.forEach((number) => number.addEventListener('click', setNum(number.textContent)));
+
+window.addEventListener('keydown', getKey);
+
+operators.forEach(operator => operator.addEventListener('click'), setOperator(operator.textContent));
+
+
 
 // helper functions
-function num() {
-    number = this.textContent;
-    console.log(number);
-    updateDisplay();
+function setNum(x) {
+    if (display.textContent === '0') {
+        num = x;
+        display.textContent = num;
+    }
+}
+
+function setOperator(op) {
+    operator = op;
+    console.log(operator);
 }
 
 function getKey(e) {
@@ -29,10 +40,10 @@ function getKey(e) {
 }
 
 function updateDisplay() {
-    if (display.textContent === "0" && tape.textContent === null) {
+    if (display.textContent === "0" && tape.textContent === '') {
         a = number;
         display.textContent = a;
-    } else if ()
+    }
 }
 
 // calculation functions
