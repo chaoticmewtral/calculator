@@ -86,3 +86,10 @@ body {
     background-color: orangered;
     font-weight: 800;
 }
+
+#logo {
+    color: orangered;
+    font-weight: 900;
+    font-size: 2em;
+    text-shadow: 1px 1px 1px black;
+}
