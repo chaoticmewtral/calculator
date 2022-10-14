@@ -5,7 +5,7 @@ body {
 }
 
 #calculator {
-    width: 500px;
+    width: 400px;
     height: 800 px;
     margin: 10px auto;
     padding: 20px 0;
@@ -28,9 +28,8 @@ body {
 }
 
 #buttons {
-    display: flex;
-    flex-flow: row;
-    gap: 10px;
+    display: grid;
+    grid-auto-flow: column;
 }
 
 .top-row {
@@ -42,6 +41,7 @@ body {
 
 #clear {
     padding: 5px;
+    margin: 8px;
 }
 
 #solar {
@@ -66,6 +66,7 @@ body {
     gap: 5px;
     grid-template-columns: 50px 50px 50px;
     grid-template-rows: 50px 50px 50px 50px;
+    margin: 8px;
 }
 
 #numbers.button {
@@ -78,4 +79,10 @@ body {
     gap: 5px;
     grid-template-columns: 50px;
     grid-template-rows: 50px 50px 50px 50px;
+    margin: 8px;
+}
+
+.num {
+    background-color: orangered;
+    font-weight: 800;
 }
