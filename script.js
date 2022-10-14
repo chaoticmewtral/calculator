@@ -35,10 +35,12 @@ function operate(operator, a, b) {
 
 // variables
 const buttons = document.querySelectorAll('button');
+let btnValue;
 
 
 function getKey(e) {
-    console.log(this.getAttribute('data-key'));
+    btnValue = this.textContent;
+    console.log(btnValue);
 }
 
 buttons.forEach(button => button.addEventListener('click', getKey));
