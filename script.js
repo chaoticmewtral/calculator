@@ -1,6 +1,6 @@
 // variables
-let a; // first operand
-let b; // second operand
+let a = ''; // first operand
+let b = ''; // second operand
 let operator;
 let displayValue;
 let number;
@@ -8,6 +8,7 @@ let number;
 const numbers = document.querySelectorAll('.num');
 const display = document.querySelector('#display');
 const tape = document.querySelector('#tape');
+const operators = document.querySelectorAll('.ops')
 
 
 // event listeners
@@ -29,7 +30,8 @@ function getKey(e) {
 
 function updateDisplay() {
     if (display.textContent === "0" && tape.textContent === null) {
-        display.textContent = number;
+        a = number;
+        display.textContent = a;
     } else if ()
 }
 

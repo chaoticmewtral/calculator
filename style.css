@@ -21,9 +21,20 @@ body {
     margin: 10px;
     padding: 8px;
     width: 80%;
+    height: 60px;
     background-color: rgb(139, 147, 139);
     text-align: right;
     font-family: Orbitron;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+#tape {
+    color: rgb(73, 72, 72);
+}
+
+#display {
     font-size: 30px;
 }
 
