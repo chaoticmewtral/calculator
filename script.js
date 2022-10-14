@@ -35,9 +35,10 @@ function operate(operator, a, b) {
 
 // variables
 const buttons = document.querySelectorAll('button');
-const operators = document.querySelector('#operators');
-const display = document.querySelector('#display');
-const clear = document.querySelector('#clear');
 
 
-buttons.forEach(button => button.addEventListener('click', function(e)));
+function getKey(e) {
+    console.log(this.getAttribute('data-key'));
+}
+
+buttons.forEach(button => button.addEventListener('click', getKey));
