@@ -15,16 +15,16 @@ window.addEventListener('keydown', getKey)
 
 // helper functions
 function num() {
-    // console.log(this.textContent);
     number = this.textContent;
     console.log(number);
 }
 
 function getKey(e) {
-    // console.log(e.key);
     number = e.key;
     console.log(number);
 }
+
+
 
 function read(val) {
 
