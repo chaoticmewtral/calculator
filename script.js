@@ -1,3 +1,4 @@
+// calculation functions
 function add(a, b) {
     return a + b;
 }
@@ -31,3 +32,5 @@ function operate(operator, a, b) {
     }
     return result;
 }
+
+// display functions
