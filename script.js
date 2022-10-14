@@ -3,6 +3,7 @@ let a; // first operand
 let b; // second operand
 let operator;
 let displayValue;
+let number;
 
 const numbers = document.querySelectorAll('.num');
 const display = document.querySelector('#display');
@@ -14,11 +15,15 @@ window.addEventListener('keydown', getKey)
 
 // helper functions
 function num() {
-    console.log(this.textContent);
+    // console.log(this.textContent);
+    number = this.textContent;
+    console.log(number);
 }
 
 function getKey(e) {
-    console.log(e.key);
+    // console.log(e.key);
+    number = e.key;
+    console.log(number);
 }
 
 function read(val) {
