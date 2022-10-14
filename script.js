@@ -24,6 +24,11 @@ function getKey(e) {
     console.log(number);
 }
 
+function updateDisplay() {
+    if (display.textContent === "0") {
+        display.textContent = number;
+    }
+}
 
 // calculation functions
 function add(a, b) {
