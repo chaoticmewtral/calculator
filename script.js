@@ -11,23 +11,15 @@ window.addEventListener('keydown', getKey)
 
 // helper functions
 function getBtn() {
-    const btnValue = this.textContent;
-    console.log(btnValue);
+    console.log(this.textContent);
 }
 
 function getKey(e) {
-    const keyValue = e.key;
-    console.log(keyValue);
+    console.log(e.key);
 }
 
 function read(val) {
-    // if val is a number
-        // send to display
-    // if val is an operator
-        // assign to operator
-        // if a is empty
-            // assign display text to a
-        // else
+
 }
 
 // calculation functions
