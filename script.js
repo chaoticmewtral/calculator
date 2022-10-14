@@ -7,6 +7,7 @@ let number;
 
 const numbers = document.querySelectorAll('.num');
 const display = document.querySelector('#display');
+const tape = document.querySelector('#tape');
 
 
 // event listeners
@@ -27,9 +28,9 @@ function getKey(e) {
 }
 
 function updateDisplay() {
-    if (display.textContent === "0") {
+    if (display.textContent === "0" && tape.textContent === null) {
         display.textContent = number;
-    }
+    } else if ()
 }
 
 // calculation functions
