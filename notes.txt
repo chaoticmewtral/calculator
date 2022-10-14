@@ -1,0 +1,17 @@
+Get input
+    keydown
+    button
+
+Read input
+    number
+        check if display is at 0
+    operator
+    clear
+    equal/enter
+
+
+display
+
+perform operation
+
+return value

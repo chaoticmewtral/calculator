@@ -20,7 +20,15 @@ function getKey(e) {
     console.log(keyValue);
 }
 
-
+function read(val) {
+    // if val is a number
+        // send to display
+    // if val is an operator
+        // assign to operator
+        // if a is empty
+            // assign display text to a
+        // else
+}
 
 // calculation functions
 function add(a, b) {
