@@ -17,11 +17,13 @@ window.addEventListener('keydown', getKey)
 function num() {
     number = this.textContent;
     console.log(number);
+    updateDisplay();
 }
 
 function getKey(e) {
     number = e.key;
     console.log(number);
+    updateDisplay();
 }
 
 function updateDisplay() {
