@@ -1,3 +1,17 @@
+// variables
+let btnValue;
+
+const buttons = document.querySelectorAll('button');
+
+// event listeners
+buttons.forEach(button => button.addEventListener('click', getKey));
+
+// helper functions
+function getKey() {
+    btnValue = this.textContent;
+    console.log(btnValue);
+}
+
 // calculation functions
 function add(a, b) {
     return a + b;
@@ -33,14 +47,4 @@ function operate(operator, a, b) {
     return result;
 }
 
-// variables
-const buttons = document.querySelectorAll('button');
-let btnValue;
 
-
-function getKey(e) {
-    btnValue = this.textContent;
-    console.log(btnValue);
-}
-
-buttons.forEach(button => button.addEventListener('click', getKey));
