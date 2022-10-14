@@ -4,10 +4,20 @@ Get input
 
 Read input
     number
-        check if display is at 0
+        if display is 0
+            replace with number
+        if display has number and "a" is null
+            append number to display += num
     operator
+        if there is already an operator, replace it with new one
+        if a and b are both assigned
+            perform operation
+            display result
+            set result as "a"
+            set operator
     clear
     equal/enter
+        do nothing if b is empty
 
 
 display
