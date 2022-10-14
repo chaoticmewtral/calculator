@@ -33,4 +33,10 @@ function operate(operator, a, b) {
     return result;
 }
 
+// variables
+const numbers = document.querySelector('#numbers');
+const operators = document.querySelector('#operators');
+const display = document.querySelector('#display');
+const clear = document.querySelector('#clear');
+
 // display functions
