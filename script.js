@@ -1,16 +1,26 @@
 // variables
-let btnValue;
+let a; // first operand
+let b; // second operand
+let operator;
 
 const buttons = document.querySelectorAll('button');
 
 // event listeners
-buttons.forEach(button => button.addEventListener('click', getKey));
+buttons.forEach(button => button.addEventListener('click', getBtn));
+window.addEventListener('keydown', getKey)
 
 // helper functions
-function getKey() {
-    btnValue = this.textContent;
+function getBtn() {
+    const btnValue = this.textContent;
     console.log(btnValue);
 }
+
+function getKey(e) {
+    const keyValue = e.key;
+    console.log(keyValue);
+}
+
+
 
 // calculation functions
 function add(a, b) {
@@ -46,5 +56,3 @@ function operate(operator, a, b) {
     }
     return result;
 }
-
-
