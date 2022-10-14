@@ -34,9 +34,13 @@ function operate(operator, a, b) {
 }
 
 // variables
-const numbers = document.querySelector('#numbers');
+const numbers = document.querySelectorAll('.num');
 const operators = document.querySelector('#operators');
 const display = document.querySelector('#display');
 const clear = document.querySelector('#clear');
+const button = 
 
 // display functions
+numbers.addEventListener('click', function(e) {
+    const keyId = 
+})
