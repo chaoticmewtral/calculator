@@ -2,15 +2,18 @@
 let a; // first operand
 let b; // second operand
 let operator;
+let displayValue;
 
-const buttons = document.querySelectorAll('button');
+const numbers = document.querySelectorAll('.num');
+const display = document.querySelector('#display');
+
 
 // event listeners
-buttons.forEach(button => button.addEventListener('click', getBtn));
+numbers.forEach(number => number.addEventListener('click', num));
 window.addEventListener('keydown', getKey)
 
 // helper functions
-function getBtn() {
+function num() {
     console.log(this.textContent);
 }
 
