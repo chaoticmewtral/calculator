@@ -24,7 +24,11 @@ function getKey(e) {
     console.log(number);
 }
 
-
+function appendDisplay() {
+    if (display.textContent === 0) {
+        display.textContent = number;
+    }
+}
 
 function read(val) {
 
