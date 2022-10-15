@@ -3,13 +3,24 @@ Get input
         event listeners
             
     button
+        event listeners for different button classes
+            numbers
+            edit (delete and clear)
+            operators
+            decimal
+            equals
 
 Read input
+    set a calculator state
+        based on current display
+        based on current operator
+        based on current tape
     number
-        if display is 0
-            replace with number
-        if display has number and "a" is null
-            append number to display += num
+        append number to current operator value
+            if display is 0
+                replace with current number
+            if last input was an operator
+                replace current display with new number
     operator
         if there is already an operator, replace it with new one
         if a and b are both assigned

@@ -67,7 +67,7 @@ body {
     align-items: center;
 }
 
-.panels {
+#solar .panels {
     height: 25px;
     width: 25px;
     background-color:rgb(19, 36, 19);
@@ -80,6 +80,10 @@ body {
     margin: 8px;
     align-items: center;
     gap: 8px;
+}
+
+.edit button {
+    background-color: whitesmoke;
 }
 
 #clear {
