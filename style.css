@@ -50,6 +50,13 @@ body {
     justify-content: space-between;
 }
 
+#logo {
+    color: orangered;
+    font-weight: 900;
+    font-size: 2em;
+    text-shadow: 1px 1px 1px rgb(36, 10, 1);
+}
+
 #solar {
     width: 120px;
     height: 30px;
@@ -111,9 +118,3 @@ body {
     font-weight: 800;
 }
 
-#logo {
-    color: orangered;
-    font-weight: 900;
-    font-size: 2em;
-    text-shadow: 1px 1px 1px rgb(36, 10, 1);
-}
