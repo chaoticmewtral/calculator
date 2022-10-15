@@ -1,17 +1,16 @@
 // variables
-let currentOperand = '';
-let a = ''; // first operand
-let b = ''; // second operand
-let operator;
-let displayValue; // current operation
-let tapeValue; // populates after first operator input
+let firstValue = ''; // a
+let secondValue = ''; // b
+let currentOperation;
 
 // constants
 const numbers = document.querySelectorAll('.num');
 const display = document.querySelector('#display');
 const tape = document.querySelector('#tape');
 const operators = document.querySelectorAll('.ops')
-
+const del = document.querySelector('#delete');
+const clear = document.querySelector('#clear');
+const equals = document.querySelector('#equals');
 
 // event listeners
 
@@ -20,6 +19,12 @@ window.addEventListener('keydown', (e) => getKey(e.key));
 numbers.forEach(number => number.addEventListener('click', () => setNum(number.textContent)));
 
 operators.forEach(operator => operator.addEventListener('click', () => setOperator(operator.textContent)));
+
+del.addEventListener('click', backSpace);
+
+clear.addEventListener('click', clearAll);
+
+equals.addEventListener('click', evaluate);
 
 // helper functions
 
@@ -38,6 +43,18 @@ function setNum(e) {
 
 function setOperator(e) {
     console.log(`Let's ${e} some shit`);
+}
+
+function backSpace() {
+    console.log('Take it back now, y\'all');
+}
+
+function clearAll() {
+    console.log('Reset button');
+}
+
+function evaluate() {
+    console.log('Time to evaluate our life choices?');
 }
 
 // calculation functions - DO NOT EDIT
