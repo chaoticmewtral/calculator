@@ -53,7 +53,8 @@ function clearAll() {
 function setNum(e) {
     if (e === '.') {
         if (calcState === 'ready') {
-            
+            firstValue = display.textContent + '.';
+            setDisplay(firstValue);
         }
         return;
     }
@@ -63,6 +64,10 @@ function setNum(e) {
 
 function setCalcState() {
 
+}
+
+function setDisplay(e) {
+    display.textContent = e;
 }
 
 function setOperator(e) {
