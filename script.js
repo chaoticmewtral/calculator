@@ -26,7 +26,7 @@ clear.addEventListener('click', clearAll);
 
 equals.addEventListener('click', evaluate);
 
-// helper functions ----------------------------
+// helper functions WORKING -----------------------
 
 function getKey(e) {
     let key = e;
@@ -43,6 +43,12 @@ function getKey(e) {
     }
 }
 
+function clearAll() {
+    document.location.reload();
+}
+
+// helper functions IN PROGRESS -----------------
+
 function setNum(e) {
     if (e === '.') {
         console.log('That\'s a decimal');
@@ -58,10 +64,6 @@ function setOperator(e) {
 
 function backSpace() {
     console.log('Take it back now, y\'all');
-}
-
-function clearAll() {
-    document.location.reload();
 }
 
 function evaluate() {
