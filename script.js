@@ -13,7 +13,7 @@ const operators = document.querySelectorAll('.ops')
 
 
 // event listeners
-numbers.forEach((number) => number.addEventListener('click', setNum(number.textContent)));
+numbers.forEach((number) => number.addEventListener('click', setNum));
 
 window.addEventListener('keydown', getKey);
 
@@ -47,7 +47,7 @@ function updateDisplay() {
     }
 }
 
-// calculation functions
+// calculation functions - DO NOT EDIT
 function add(a, b) {
     return a + b;
 }
