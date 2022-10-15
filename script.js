@@ -29,7 +29,6 @@ equals.addEventListener('click', evaluate);
 // helper functions ----------------------------
 
 function getKey(e) {
-    console.log(`Key pressed: ${e}`);
     let key = e;
     if ((key >= 0 && key <= 9) || key === '.') {
         setNum(key);
