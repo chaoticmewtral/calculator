@@ -1,9 +1,9 @@
-// variables
+// variables --------------------------
 let firstValue = ''; // a
 let secondValue = ''; // b
 let currentOperation;
 
-// constants
+// constants -----------------------------
 const numbers = document.querySelectorAll('.num');
 const display = document.querySelector('#display');
 const tape = document.querySelector('#tape');
@@ -12,7 +12,7 @@ const del = document.querySelector('#delete');
 const clear = document.querySelector('#clear');
 const equals = document.querySelector('#equals');
 
-// event listeners
+// event listeners ------------------------
 
 window.addEventListener('keydown', (e) => getKey(e.key));
 
@@ -26,10 +26,10 @@ clear.addEventListener('click', clearAll);
 
 equals.addEventListener('click', evaluate);
 
-// helper functions
+// helper functions ----------------------------
 
 function getKey(e) {
-    console.log(`You pressed ${e}`);
+    console.log(`Key pressed: ${e}`);
     let key = e;
     if ((key >= 0 && key <= 9) || key === '.') {
         setNum(key);
@@ -41,7 +41,7 @@ function setNum(e) {
         console.log('That\'s a decimal');
         return;
     }
-    console.log(`You clicked ${e}`);
+    console.log(`Number: ${e}`);
     return;
 }
 
@@ -61,7 +61,7 @@ function evaluate() {
     console.log('Time to evaluate our life choices?');
 }
 
-// calculation functions - DO NOT EDIT
+// calculation functions - DO NOT EDIT --------------
 function add(a, b) {
     return a + b;
 }
