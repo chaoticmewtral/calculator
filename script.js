@@ -21,30 +21,7 @@ window.addEventListener('keydown', getKey);
 operators.forEach(operator => operator.addEventListener('click'), setOperator(operator.textContent));
 
 // helper functions
-function setNum(x) {
-    if (display.textContent === '0') {
-        num = x;
-        display.textContent = num;
-    }
-}
 
-function setOperator(op) {
-    operator = op;
-    console.log(operator);
-}
-
-function getKey(e) {
-    number = e.key;
-    console.log(number);
-    updateDisplay();
-}
-
-function updateDisplay() {
-    if (display.textContent === "0" && tape.textContent === '') {
-        a = number;
-        display.textContent = a;
-    }
-}
 
 // calculation functions - DO NOT EDIT
 function add(a, b) {
