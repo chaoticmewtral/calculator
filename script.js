@@ -30,6 +30,10 @@ equals.addEventListener('click', evaluate);
 
 function getKey(e) {
     console.log(`You pressed ${e}`);
+    let key = e;
+    if ((key >= 0 && key <= 9) || key === '.') {
+        setNum(key);
+    }
 }
 
 function setNum(e) {
