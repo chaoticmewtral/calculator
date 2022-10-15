@@ -2,6 +2,7 @@
 let firstValue = ''; // a
 let secondValue = ''; // b
 let currentOperation;
+let calcState = 'ready';
 
 // constants -----------------------------
 const numbers = document.querySelectorAll('.num');
@@ -51,11 +52,17 @@ function clearAll() {
 
 function setNum(e) {
     if (e === '.') {
-        console.log('That\'s a decimal');
+        if (calcState === 'ready') {
+            
+        }
         return;
     }
     console.log(`Number: ${e}`);
     return;
+}
+
+function setCalcState() {
+
 }
 
 function setOperator(e) {
