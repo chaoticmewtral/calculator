@@ -6,6 +6,7 @@ let displayValue;
 let tapeValue;
 let num;
 
+// constants
 const numbers = document.querySelectorAll('.num');
 const display = document.querySelector('#display');
 const tape = document.querySelector('#tape');
@@ -18,8 +19,6 @@ numbers.forEach((number) => number.addEventListener('click', setNum));
 window.addEventListener('keydown', getKey);
 
 operators.forEach(operator => operator.addEventListener('click'), setOperator(operator.textContent));
-
-
 
 // helper functions
 function setNum(x) {
