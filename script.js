@@ -61,7 +61,7 @@ function backSpace() {
 }
 
 function clearAll() {
-    console.log('Reset button');
+    document.location.reload();
 }
 
 function evaluate() {
