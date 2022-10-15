@@ -33,6 +33,14 @@ function getKey(e) {
     let key = e;
     if ((key >= 0 && key <= 9) || key === '.') {
         setNum(key);
+    } else if (key === 'Enter') {
+        evaluate();
+    } else if (key === 'Backspace') {
+        backSpace();
+    } else if (key === 'Delete' || key === 'Escape' || key === 'Clear') {
+        clearAll();
+    } else if (key === '/' || key === '*' || key === '-' || key === '+') {
+        setOperator(key);
     }
 }
 
