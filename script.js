@@ -3,6 +3,7 @@ let firstValue = ''; // a
 let secondValue = ''; // b
 let currentOperation;
 let calcState = 'ready';
+let num;
 
 // constants -----------------------------
 const numbers = document.querySelectorAll('.num');
@@ -52,9 +53,9 @@ function clearAll() {
 
 function setNum(e) {
     if (e === '.') {
-        if (calcState === 'ready') {
-            firstValue = display.textContent + '.';
-            setDisplay(firstValue);
+        if (calcState === 'ready' || (calcState === 'mediaRes' && (display.textContent.indexOf('.') === '-1'))) {
+            num = display.textContent + '.';
+            setDisplay(num);
         }
         return;
     }
@@ -63,11 +64,14 @@ function setNum(e) {
 }
 
 function setCalcState() {
-
+    if (display.textContent !== '0') {
+        calcState = 'mediaRes';
+    }
 }
 
 function setDisplay(e) {
     display.textContent = e;
+    setCalcState();
 }
 
 function setOperator(e) {
