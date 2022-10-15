@@ -3,6 +3,7 @@ let a = ''; // first operand
 let b = ''; // second operand
 let operator;
 let displayValue;
+let tapeValue;
 let num;
 
 const numbers = document.querySelectorAll('.num');

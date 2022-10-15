@@ -50,11 +50,6 @@ body {
     justify-content: space-between;
 }
 
-#clear {
-    padding: 5px;
-    margin: 8px;
-}
-
 #solar {
     width: 120px;
     height: 30px;
@@ -69,6 +64,24 @@ body {
     height: 25px;
     width: 25px;
     background-color:rgb(19, 36, 19);
+}
+
+.edit {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 8px;
+    align-items: center;
+    gap: 8px;
+}
+
+#clear {
+    flex: 2;
+    width: 100%;
+}
+
+#delete {
+    flex: 1;
 }
 
 #numbers {
