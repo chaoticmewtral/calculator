@@ -1,4 +1,5 @@
 // variables
+let currentOperand = '';
 let a = ''; // first operand
 let b = ''; // second operand
 let operator;
@@ -13,14 +14,31 @@ const operators = document.querySelectorAll('.ops')
 
 
 // event listeners
-numbers.forEach((number) => number.addEventListener('click', setNum));
 
-window.addEventListener('keydown', getKey);
+window.addEventListener('keydown', (e) => getKey(e.key));
 
-operators.forEach(operator => operator.addEventListener('click'), setOperator(operator.textContent));
+numbers.forEach(number => number.addEventListener('click', () => setNum(number.textContent)));
+
+operators.forEach(operator => operator.addEventListener('click', () => setOperator(operator.textContent)));
 
 // helper functions
 
+function getKey(e) {
+    console.log(`You pressed ${e}`);
+}
+
+function setNum(e) {
+    if (e === '.') {
+        console.log('That\'s a decimal');
+        return;
+    }
+    console.log(`You clicked ${e}`);
+    return;
+}
+
+function setOperator(e) {
+    console.log(`Let's ${e} some shit`);
+}
 
 // calculation functions - DO NOT EDIT
 function add(a, b) {
