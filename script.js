@@ -2,9 +2,8 @@
 let a = ''; // first operand
 let b = ''; // second operand
 let operator;
-let displayValue;
-let tapeValue;
-let num;
+let displayValue; // current operation
+let tapeValue; // populates after first operator input
 
 // constants
 const numbers = document.querySelectorAll('.num');
