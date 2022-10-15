@@ -116,6 +116,9 @@ function operate(operator, a, b) {
             result = multiply(a, b);
             break;
         case divide:
+            if (a === 0){
+                result = "You can't divide by 0!";
+            }
             result = divide(a, b);
     }
     return result;
