@@ -118,6 +118,7 @@ function operate(operator, a, b) {
         case divide:
             if (a === 0){
                 result = "You can't divide by 0!";
+                break;
             }
             result = divide(a, b);
     }
