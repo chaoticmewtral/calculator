@@ -3,7 +3,8 @@ let firstValue = ''; // a
 let secondValue = ''; // b
 let currentOperation;
 let calcState = 'ready';
-let num;
+let num = 0;
+let tapeText = '';
 
 // constants -----------------------------
 const numbers = document.querySelectorAll('.num');
@@ -53,10 +54,16 @@ function clearAll() {
 
 function setNum(e) {
     if (e === '.') {
-        if (calcState === 'ready' || (calcState === 'mediaRes' && (display.textContent.indexOf('.') === '-1'))) {
-            num = display.textContent + '.';
-            setDisplay(num);
-        } else {
+        if (calcState === 'ready') {
+            if (tapeText === '') {
+                num = display.textContent + '.';
+                setDisplay(num);
+            } else {
+                num = 0.
+                setDisplay(num);
+            }
+        } else if (calcState === 'mediaRes') {
+            if ((display.textContent).search('.') === '-1')
             num += e;
             setDisplay(num);
         }
@@ -89,7 +96,9 @@ function setOperator(e) {
 }
 
 function backSpace() {
-    console.log('Take it back now, y\'all');
+    if (calcState === 'mediaRes') {
+
+    }
 }
 
 function evaluate() {
