@@ -56,10 +56,20 @@ function setNum(e) {
         if (calcState === 'ready' || (calcState === 'mediaRes' && (display.textContent.indexOf('.') === '-1'))) {
             num = display.textContent + '.';
             setDisplay(num);
+        } else {
+            num += e;
+            setDisplay(num);
         }
         return;
+    } else if (e >= 0 && e <= 9) {
+        if (calcState === 'ready') {
+            num = e;
+            setDisplay(num);
+        } else if (calcState === 'mediaRes') {
+            num += e;
+            setDisplay(num);
+        }
     }
-    console.log(`Number: ${e}`);
     return;
 }
 
