@@ -111,9 +111,13 @@ function setTape() {
     if (tape.textContent === '') {
         firstValue = num;
         tapeText = `${firstValue}  ${currentOperation} `;
-        tape.textContent = tapeText;
-        calcState = 'ready';
+    } else if (secondValue !== '') {
+        tapeText = `${firstValue}  ${currentOperation}  ${secondValue}  =`;
+    } else if (secondValue === '') {
+        tapeText = `${firstValue}  ${currentOperation}`
     }
+    tape.textContent = tapeText;
+    calcState = 'ready';
 }
 
 function evaluate() {
@@ -169,5 +173,9 @@ function operate(operator, a, b) {
             }
             result = divide(a, b);
     }
-    console.log(result);
+    setDisplay(result);
+    setTape();
+    firstValue = result;
+    secondValue = '';
+    currentOperation = '';
 }
