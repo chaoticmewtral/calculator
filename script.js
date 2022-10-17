@@ -26,7 +26,7 @@ operators.forEach(operator => operator.addEventListener('click', () => setOperat
 
 del.addEventListener('click', backSpace);
 
-clear.addEventListener('click', clearAll);
+clear.addEventListener('click', resetAll);
 
 equals.addEventListener('click', evaluate);
 
@@ -45,14 +45,21 @@ function getKey(e) {
     } else if (key === 'Backspace') {
         backSpace();
     } else if (key === 'Delete' || key === 'Escape' || key === 'Clear') {
-        clearAll();
+        resetAll();
     } else if (key === '/' || key === '*' || key === '-' || key === '+') {
         setOperator(key);
     }
 }
 
-function clearAll() {
-    document.location.reload();
+function resetAll() {
+    firstValue = '';
+    secondValue = '';
+    currentOperation = '';
+    calcState = 'ready';
+    num = 0;
+    tapeText = '';
+    tape.textContent = tapeText;
+    display.textContent = 0;
 }
 
 function setNum(e) {
@@ -65,6 +72,9 @@ function setNum(e) {
             setDisplay(num);
         }
     } else if (calcState === 'ready') {
+        if (tape.textContent.indexOf('=') !== -1 && currentOperation === '') {
+        resetAll();
+        }
         num = e;
         setDisplay(num);
     } else {
@@ -106,11 +116,18 @@ function setDisplay(e) {
 }
 
 function setOperator(e) {
-    if (firstValue !== '') {
+    if (firstValue !== '' && secondValue === '') {
         secondValue = display.textContent;
+        currentOperation = e;
+        setTape();
+    } else if (firstValue !== '' && secondValue !== '') {
+        firstValue = secondValue;
+        secondValue = display.textContent;
+        operate(currentOperation, firstValue, secondValue);
+    } else {
+        currentOperation = e;
+        setTape();
     }
-    currentOperation = e;
-    setTape();
 }
 
 function setTape() {
