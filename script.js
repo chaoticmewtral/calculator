@@ -108,6 +108,8 @@ function decimal() {
 function setCalcState() {
     if (display.textContent !== '0') {
         calcState = 'mediaRes';
+    } else {
+        calcState = 'ready';
     }
 }
 
@@ -122,7 +124,11 @@ function setOperator(e) {
 
 function backSpace() {
     if (calcState === 'mediaRes') {
-
+        num = num.slice(0, -1);
+        if (num === '') {
+            num = 0;
+        }
+        setDisplay(num);
     }
 }
 
