@@ -103,6 +103,10 @@ function setDisplay(e) {
 }
 
 function setOperator(e) {
+    if (firstValue !== '') {
+        setTape();
+        evaluate();
+    }
     currentOperation = e;
     setTape();
 }
@@ -111,7 +115,7 @@ function setTape() {
     if (tape.textContent === '') {
         firstValue = num;
         tapeText = `${firstValue}  ${currentOperation} `;
-    } else if (secondValue !== '') {
+    } else if (currentOperation !== '') {
         tapeText = `${firstValue}  ${currentOperation}  ${secondValue}  =`;
     } else if (secondValue === '') {
         tapeText = `${firstValue}  ${currentOperation}`
@@ -176,6 +180,5 @@ function operate(operator, a, b) {
     setDisplay(result);
     setTape();
     firstValue = result;
-    secondValue = '';
     currentOperation = '';
 }
