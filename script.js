@@ -30,3 +30,21 @@ clear.addEventListener('click', resetAll);
 equals.addEventListener('click', evaluate);
 
 dec.addEventListener('click', decimal);
+
+// listener functions -----------------------
+function getKey(e) {
+    let key = e; // assign event argument to key variable
+    if (key >= 0 && key <= 9) {
+        getNum(key);
+    } else if (key === '.') {
+        decimal();
+    } else if (key === 'Enter') {
+        evaluate();
+    } else if (key === 'Backspace') {
+        backSpace();
+    } else if (key === 'Delete' || key === 'Escape' || key === 'Clear') {
+        resetAll();
+    } else if (key === '/' || key === '*' || key === '-' || key === '+') {
+        setOperator(key);
+    }
+}
