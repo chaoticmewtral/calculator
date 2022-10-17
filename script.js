@@ -70,40 +70,23 @@ function setNum(e) {
     }
 }
 
+function backSpace() {
+    if (calcState === 'mediaRes') {
+        num = num.slice(0, -1);
+        if (num === '') {
+            num = 0;
+        }
+        setDisplay(num);
+    }
+}
+
+
 // helper functions IN PROGRESS -----------------
 
 
 function decimal() {
     console.log("Decimal");
 }
-
-// function setNum(e) {
-//     if (e === '.') {
-//         if (calcState === 'ready') {
-//             if (tapeText === '') {
-//                 num = display.textContent + '.';
-//                 setDisplay(num);
-//             } else {
-//                 num = 0.
-//                 setDisplay(num);
-//             }
-//         } else if (calcState === 'mediaRes') {
-//             if ((display.textContent).search('.') === '-1')
-//             num += e;
-//             setDisplay(num);
-//         }
-//         return;
-//     } else if (e >= 0 && e <= 9) {
-//         if (calcState === 'ready') {
-//             num = e;
-//             setDisplay(num);
-//         } else if (calcState === 'mediaRes') {
-//             num += e;
-//             setDisplay(num);
-//         }
-//     }
-//     return;
-// }
 
 function setCalcState() {
     if (display.textContent !== '0') {
@@ -122,15 +105,7 @@ function setOperator(e) {
     console.log(`Let's ${e} some shit`);
 }
 
-function backSpace() {
-    if (calcState === 'mediaRes') {
-        num = num.slice(0, -1);
-        if (num === '') {
-            num = 0;
-        }
-        setDisplay(num);
-    }
-}
+
 
 function evaluate() {
     console.log('Time to evaluate our life choices?');
