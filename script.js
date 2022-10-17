@@ -33,8 +33,10 @@ equals.addEventListener('click', evaluate);
 
 function getKey(e) {
     let key = e;
-    if ((key >= 0 && key <= 9) || key === '.') {
+    if (key >= 0 && key <= 9) {
         setNum(key);
+    } else if (key === '.') {
+        decimal();
     } else if (key === 'Enter') {
         evaluate();
     } else if (key === 'Backspace') {
@@ -51,34 +53,43 @@ function clearAll() {
 }
 
 // helper functions IN PROGRESS -----------------
-
 function setNum(e) {
     if (e === '.') {
-        if (calcState === 'ready') {
-            if (tapeText === '') {
-                num = display.textContent + '.';
-                setDisplay(num);
-            } else {
-                num = 0.
-                setDisplay(num);
-            }
-        } else if (calcState === 'mediaRes') {
-            if ((display.textContent).search('.') === '-1')
-            num += e;
-            setDisplay(num);
-        }
-        return;
-    } else if (e >= 0 && e <= 9) {
-        if (calcState === 'ready') {
-            num = e;
-            setDisplay(num);
-        } else if (calcState === 'mediaRes') {
-            num += e;
-            setDisplay(num);
-        }
+        decimal();
     }
-    return;
 }
+
+function decimal() {
+    console.log("Decimal");
+}
+
+// function setNum(e) {
+//     if (e === '.') {
+//         if (calcState === 'ready') {
+//             if (tapeText === '') {
+//                 num = display.textContent + '.';
+//                 setDisplay(num);
+//             } else {
+//                 num = 0.
+//                 setDisplay(num);
+//             }
+//         } else if (calcState === 'mediaRes') {
+//             if ((display.textContent).search('.') === '-1')
+//             num += e;
+//             setDisplay(num);
+//         }
+//         return;
+//     } else if (e >= 0 && e <= 9) {
+//         if (calcState === 'ready') {
+//             num = e;
+//             setDisplay(num);
+//         } else if (calcState === 'mediaRes') {
+//             num += e;
+//             setDisplay(num);
+//         }
+//     }
+//     return;
+// }
 
 function setCalcState() {
     if (display.textContent !== '0') {
