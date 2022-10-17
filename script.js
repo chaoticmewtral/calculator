@@ -14,6 +14,7 @@ const operators = document.querySelectorAll('.ops')
 const del = document.querySelector('#delete');
 const clear = document.querySelector('#clear');
 const equals = document.querySelector('#equals');
+const dec = document.querySelector('#dec');
 
 // event listeners ------------------------
 
@@ -28,6 +29,8 @@ del.addEventListener('click', backSpace);
 clear.addEventListener('click', clearAll);
 
 equals.addEventListener('click', evaluate);
+
+dec.addEventListener('click', decimal);
 
 // helper functions WORKING -----------------------
 

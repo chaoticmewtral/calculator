@@ -109,7 +109,8 @@ body {
     height: 50px;
 }
 
-.num {
+.num,
+#dec {
     background-color: orangered;
     font-weight: 800;
 }
