@@ -55,12 +55,23 @@ function clearAll() {
     document.location.reload();
 }
 
-// helper functions IN PROGRESS -----------------
 function setNum(e) {
     if (e === '.') {
         decimal();
     }
+    if (calcState === 'ready') {
+        if (e > 0) {
+            num = e;
+            setDisplay(num);
+        }
+    } else {
+        num += e;
+        setDisplay(num);
+    }
 }
+
+// helper functions IN PROGRESS -----------------
+
 
 function decimal() {
     console.log("Decimal");
