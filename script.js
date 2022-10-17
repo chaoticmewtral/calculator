@@ -77,6 +77,7 @@ function backSpace() {
             num = 0;
         }
         setDisplay(num);
+        setCalcState();
     }
 }
 
@@ -102,13 +103,21 @@ function setDisplay(e) {
 }
 
 function setOperator(e) {
-    console.log(`Let's ${e} some shit`);
+    currentOperation = e;
+    setTape();
 }
 
-
+function setTape() {
+    if (tape.textContent === '') {
+    firstValue = num;
+    }
+    tapeText = `${firstValue}  ${currentOperation} `;
+    tape.textContent = tapeText;
+    calcState = 'ready';
+}
 
 function evaluate() {
-    console.log('Time to evaluate our life choices?');
+    
 }
 
 // calculation functions - DO NOT EDIT --------------
