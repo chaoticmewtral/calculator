@@ -59,11 +59,14 @@ function setNum(e) {
     if (e === '.') {
         decimal();
     }
-    if (calcState === 'ready') {
+    if (calcState === 'ready' && num === 0) {
         if (e > 0) {
             num = e;
             setDisplay(num);
         }
+    } else if (calcState === 'ready') {
+        num = e;
+        setDisplay(num);
     } else {
         num += e;
         setDisplay(num);
@@ -104,8 +107,7 @@ function setDisplay(e) {
 
 function setOperator(e) {
     if (firstValue !== '') {
-        setTape();
-        evaluate();
+        secondValue = display.textContent;
     }
     currentOperation = e;
     setTape();
@@ -179,6 +181,6 @@ function operate(operator, a, b) {
     }
     setDisplay(result);
     setTape();
-    firstValue = result;
+    num = result;
     currentOperation = '';
 }
