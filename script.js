@@ -1,7 +1,7 @@
 // variables --------------------------
 let firstValue = ''; // a
 let secondValue = ''; // b
-let currentOperation;
+let currentOperation = '';
 let calcState = 'ready';
 let num = 0;
 let tapeText = '';
@@ -117,44 +117,56 @@ function setTape() {
 }
 
 function evaluate() {
-    
+    if (firstValue !== '' && currentOperation !== '') {
+        secondValue = num;
+        operate(currentOperation, firstValue, secondValue);
+    }
 }
 
 // calculation functions - DO NOT EDIT --------------
 function add(a, b) {
-    return a + b;
+    return parseInt(a) + parseInt(b);
 }
 
 function subtract(a, b) {
-    return a - b;
+    return parseInt(a) - parseInt(b);
 }
 
 function multiply(a, b) {
-    return a * b;
+    return parseInt(a) * parseInt(b);
 }
 
 function divide(a, b) {
-    return a / b;
+    return parseInt(a) / parseInt(b);
 }
 
 function operate(operator, a, b) {
     let result;
     switch(operator) {
-        case add:
+        case '+':
             result = add(a, b);
             break;
-        case subtract:
+        case '-':
             result = subtract(a, b);
             break;
-        case multiply:
+        case '*':
             result = multiply(a, b);
             break;
-        case divide:
+        case '×':
+            result = multiply(a, b);
+        case '/':
+            if (a === 0){
+                result = "You can't divide by 0!";
+                break;
+            }
+            result = divide(a, b);
+            break;
+        case '÷':
             if (a === 0){
                 result = "You can't divide by 0!";
                 break;
             }
             result = divide(a, b);
     }
-    return result;
+    console.log(result);
 }
