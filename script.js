@@ -109,11 +109,11 @@ function setOperator(e) {
 
 function setTape() {
     if (tape.textContent === '') {
-    firstValue = num;
+        firstValue = num;
+        tapeText = `${firstValue}  ${currentOperation} `;
+        tape.textContent = tapeText;
+        calcState = 'ready';
     }
-    tapeText = `${firstValue}  ${currentOperation} `;
-    tape.textContent = tapeText;
-    calcState = 'ready';
 }
 
 function evaluate() {
@@ -154,6 +154,7 @@ function operate(operator, a, b) {
             break;
         case '×':
             result = multiply(a, b);
+            break;
         case '/':
             if (a === 0){
                 result = "You can't divide by 0!";
