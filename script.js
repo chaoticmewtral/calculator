@@ -68,22 +68,27 @@ function getNum(e) {
             num = e;
             calcInput = 'mediaRes';
             toDisplay(num);
+        } else {
+            return;
         }
-    } else if ((num > 0 || num < 0) && (calcInput === 'mediaRes')) {
+    } else if (calcInput === 'mediaRes') {
         num += e;
         toDisplay(num);
     } else {
-        num += e;
+        num = e;
         toDisplay(num);
+        calcInput = 'mediaRes';
     }
 }
 
 function decimal(e) {
-    if (cleanSlate) {
+    num = num.toString();
+    if ((num.replace('.', '')) === num) {
         num += e;
-        cleanSlate = 'false';
         toDisplay(num);
         calcInput = 'mediaRes';
+    } else {
+        return;
     }
 }
 
@@ -118,10 +123,12 @@ function setOperator(e) {
 
 function toDisplay(e) {
     display.textContent = e;
+    num = display.textContent;
 }
 
 function toTape(e) {
     tape.textContent = e;
+    tapeText = tape.textContent;
 }
 
 function evaluate(e) {
