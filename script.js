@@ -132,18 +132,7 @@ function toTape(e) {
 }
 
 function evaluate(e) {
-    if (calcInput === 'ready') {
-        return;
-    } else {
-        secondOperand = num;
-        num = 0;
-        tapeText = `${firstOperand}  ${currentOperator}  ${secondOperand}  =`;
-        toTape(tapeText);
-        operate(currentOperator, firstOperand, secondOperand);
-        calcInput = 'ready';
-        secondOperand = '';
-        currentOperator = '';
-    }
+    
 }
 
 // calculation functions - DO NOT EDIT --------------
