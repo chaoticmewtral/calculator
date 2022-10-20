@@ -40,7 +40,7 @@ function getKey(e) {
     } else if (key === '.') {
         decimal(key);
     } else if (key === 'Enter') {
-        evaluate();
+        evaluate(key);
     } else if (key === 'Backspace') {
         backSpace();
     } else if (key === 'Delete' || key === 'Escape' || key === 'Clear') {
@@ -124,10 +124,12 @@ function toTape(e) {
     tape.textContent = e;
 }
 
-function evaluate() {
+function evaluate(e) {
     if (calcInput === 'ready') {
         return;
-    } else {
+    } else if (e === 'Enter') {
+        secondOperand = num;
+    } {
         secondOperand = num;
         num = 0;
         tapeText = `${firstOperand}  ${currentOperator}  ${secondOperand}  =`;
