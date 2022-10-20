@@ -132,7 +132,11 @@ function toTape(e) {
 }
 
 function evaluate(e) {
-    
+    if (e === 'Enter') {
+        if (currentOperator = '') {
+            return;
+        }
+    }
 }
 
 // calculation functions - DO NOT EDIT --------------
