@@ -109,7 +109,7 @@ function setOperator(e) {
             calcInput = 'ready';
             return;
         }
-    }
+    } // add function for performing operation on existing result after cleaning up eval()
 }
 
  function backSpace () {
