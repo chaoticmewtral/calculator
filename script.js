@@ -15,7 +15,7 @@ let currentOperator = ''; // active operation
 let calcInput = 'ready' // 'ready' default
 let num = display.textContent; // active number
 let tapeText = tape.textContent; // tape display of operation history
-let cleanSlate = 'true';
+
 
 // event listeners --------------------------
 window.addEventListener('keydown', (e) => getKey(e.key));
@@ -59,7 +59,6 @@ function resetAll() {
     toDisplay(num);
     tapeText = '';
     toTape(tapeText);
-    cleanSlate = 'true';
 }
 
 function getNum(e) {
@@ -83,32 +82,33 @@ function getNum(e) {
 
 function decimal(e) {
     num = num.toString();
-    if ((num.replace('.', '')) === num) {
+    if (calcInput === 'ready') {
+        num = '0.';
+    } else if ((num.replace('.', '')) === num) {
         num += e;
-        toDisplay(num);
-        calcInput = 'mediaRes';
     } else {
         return;
     }
+    toDisplay(num);
+    calcInput = 'mediaRes';
 }
 
 function setOperator(e) {
     if (firstOperand === '') {
         currentOperator = e;
         firstOperand = num;
-        num = 0;
-        cleanSlate = 'false';
         tapeText = `${firstOperand}  ${currentOperator}`;
         toTape(tapeText);
         calcInput = 'ready';
         return;
-    } else if (currentOperator === '') {
-        currentOperator = e;
-        evaluate();
-        return;
-    } else {
-        currentOperator = e;
-        evaluate();
+    } else if (calcInput === 'ready') {
+        if (secondOperand === '') {
+            currentOperator = e;
+            tapeText = `${firstOperand}  ${currentOperator}`;
+            toTape(tapeText);
+            calcInput = 'ready';
+            return;
+        }
     }
 }
 
