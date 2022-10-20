@@ -1,12 +1,3 @@
-// variables for temporary stored values
-let firstOperand = ''; // a
-let secondOperand = ''; // b
-let currentOperator = ''; // active operation
-let calcInput = 'ready' // 'ready' default
-let num = 0; // active number
-let tapeText = ''; // tape display of operation history
-let cleanSlate = 'true';
-
 // constants -------------------------------
 const numbers = document.querySelectorAll('.num');
 const display = document.querySelector('#display');
@@ -16,6 +7,15 @@ const del = document.querySelector('#delete');
 const clear = document.querySelector('#clear');
 const equals = document.querySelector('#equals');
 const dec = document.querySelector('#dec');
+
+// variables for temporary stored values
+let firstOperand = ''; // a
+let secondOperand = ''; // b
+let currentOperator = ''; // active operation
+let calcInput = 'ready' // 'ready' default
+let num = display.textContent; // active number
+let tapeText = tape.textContent; // tape display of operation history
+let cleanSlate = 'true';
 
 // event listeners --------------------------
 window.addEventListener('keydown', (e) => getKey(e.key));
@@ -63,7 +63,7 @@ function resetAll() {
 }
 
 function getNum(e) {
-    if (num === 0) {
+    if (num === '0') {
         if (e > 0) {
             num = e;
             calcInput = 'mediaRes';
@@ -127,9 +127,7 @@ function toTape(e) {
 function evaluate(e) {
     if (calcInput === 'ready') {
         return;
-    } else if (e === 'Enter') {
-        secondOperand = num;
-    } {
+    } else {
         secondOperand = num;
         num = 0;
         tapeText = `${firstOperand}  ${currentOperator}  ${secondOperand}  =`;
