@@ -80,7 +80,9 @@ function toTape(result) {
         tapeDisplay.textContent = msg;
     } else {
         msg = `${aValue}  ${currentOperator}  ${bValue} = ${result}`;
+        tapeDisplay.textContent = msg;
     }
+    console.log(msg);
 }
 
 function clearAll() {
