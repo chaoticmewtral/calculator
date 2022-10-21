@@ -13,8 +13,9 @@ let firstOperand = ''; // a
 let secondOperand = ''; // b
 let currentOperator = ''; // active operation
 let calcInput = 'ready' // 'ready' default
-let num = display.textContent; // active number
-let tapeText = tape.textContent; // tape display of operation history
+let num = ''; // active number
+let tapeText;
+let result;
 
 
 // event listeners --------------------------
@@ -28,7 +29,7 @@ del.addEventListener('click', backSpace);
 
 clear.addEventListener('click', resetAll);
 
-equals.addEventListener('click', evaluate);
+equals.addEventListener('click', evaluate('Enter'));
 
 dec.addEventListener('click', decimal);
 
@@ -112,7 +113,7 @@ function setOperator(e) {
     } // add function for performing operation on existing result after cleaning up eval()
 }
 
- function backSpace () {
+ function backSpace() {
     if (num === '0') {
         return;
     }
@@ -135,12 +136,13 @@ function evaluate(e) {
     if (e === 'Enter') {
         if (currentOperator = '') {
             return;
+        } else {
+            secondOperand = num;
+            operate(currentOperator, firstOperand, secondOperand);
+            tapeText = `${firstOperand.toString()}  ${currentOperator.toString()}  ${secondOperand.toString()}  =`;
+            toTape(tapeText);
+            toDisplay(result);
         }
-        secondOperand = num;
-        operate(currentOperator, firstOperand, secondOperand);
-        tapeText = `${firstOperand}  ${currentOperator}  ${secondOperand}  =`;
-        toTape(tapeText);
-        calcInput = 'ready';
     }
 }
 
@@ -162,7 +164,7 @@ function divide(a, b) {
 }
 
 function operate(operator, a, b) {
-    let result;
+  
     switch(operator) {
         case '+':
             result = add(a, b);
@@ -190,5 +192,4 @@ function operate(operator, a, b) {
             }
             result = divide(a, b);
     }
-    toDisplay(result);
 }
