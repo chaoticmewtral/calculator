@@ -93,6 +93,8 @@ function evaluate() {
     }
 }
 
+// meds are kicking in, so any code beyond this point could be sus
+
 function operate(operator, a, b) {
-    
+
 }
