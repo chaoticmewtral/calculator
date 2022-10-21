@@ -73,11 +73,13 @@ function setOperator(op) {
     }
 }
 
-function toTape() {
+function toTape(result) {
     let msg = '';
     if (bValue === '') {
         msg = `${aValue} ${currentOperator}`;
         tapeDisplay.textContent = msg;
+    } else {
+        msg = `${aValue}  ${currentOperator}  ${bValue} = ${result}`;
     }
 }
 
@@ -89,12 +91,59 @@ function evaluate() {
     if (currentOperator === '') {
         return;
     } else {
-        operate(currentOperator, aValue, bValue);
+        bValue = mainDisplay.textContent;
+        console.log(`${currentOperator}, ${aValue}, ${bValue}`);
     }
 }
 
 // meds are kicking in, so any code beyond this point could be sus
 
-function operate(operator, a, b) {
+// calculation functions - DO NOT EDIT --------------
+function add(a, b) {
+    return parseInt(a) + parseInt(b);
+}
 
+function subtract(a, b) {
+    return parseInt(a) - parseInt(b);
+}
+
+function multiply(a, b) {
+    return parseInt(a) * parseInt(b);
+}
+
+function divide(a, b) {
+    return parseInt(a) / parseInt(b);
+}
+
+function operate(operator, a, b) {
+    let result;
+    let msg = `${a}  ${operator}  ${b} = ${result}`;
+    switch(operator) {
+        case '+':
+            result = add(a, b);
+            break;
+        case '-':
+            result = subtract(a, b);
+            break;
+        case '*':
+            result = multiply(a, b);
+            break;
+        case '×':
+            result = multiply(a, b);
+            break;
+        case '/':
+            if (a === 0){
+                result = "You can't divide by 0!";
+                break;
+            }
+            result = divide(a, b);
+            break;
+        case '÷':
+            if (a === 0){
+                result = "You can't divide by 0!";
+                break;
+            }
+            result = divide(a, b);
+    }
+    toTape(msg);
 }
