@@ -86,5 +86,13 @@ function clearAll() {
 }
 
 function evaluate() {
-    console.log('Equals');
+    if (currentOperator === '') {
+        return;
+    } else {
+        operate(currentOperator, aValue, bValue);
+    }
+}
+
+function operate(operator, a, b) {
+    
 }
