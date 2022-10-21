@@ -38,35 +38,35 @@ function getKeyValue(key) {
 }
 
 function addDecimal() {
-    if (!resetDisplay && display.textContent.replace('.', '') === display.textContent) {
-        display.textContent += '.';
-    } else if (resetDisplay || display.textContent === '0') {
-        display.textContent = '0.'
+    if (!resetDisplay && mainDisplay.textContent.replace('.', '') === mainDisplay.textContent) {
+        mainDisplay.textContent += '.';
+    } else if (resetDisplay || mainDisplay.textContent === '0') {
+        mainDisplay.textContent = '0.'
         resetDisplay = false;
     }
 }
 
 function toDisplay(e) {
-    if (resetDisplay || display.textContent === '0') {
-        display.textContent = e;
+    if (resetDisplay || mainDisplay.textContent === '0') {
+        mainDisplay.textContent = e;
         resetDisplay = false;
     } else {
-        display.textContent += e;
+        mainDisplay.textContent += e;
     }
 }
 
 function backSpace() {
-    if (!resetDisplay || display.textContent === '0') {
-        display.textContent = display.textContent.slice(0, -1);
-        if (display.textContent.length < 1) {
-            display.textContent = 0;
+    if (!resetDisplay || mainDisplay.textContent === '0') {
+        mainDisplay.textContent = mainDisplay.textContent.slice(0, -1);
+        if (mainDisplay.textContent.length < 1) {
+            mainDisplay.textContent = 0;
         }
     }
 }
 
 function setOperator(op) {
-    if (resetDisplay) {
-        aValue = display.textContent;
+    if (currentOperator === '') {
+        aValue = mainDisplay.textContent;
         currentOperator = op;
         toTape();
         resetDisplay = true;
@@ -74,7 +74,11 @@ function setOperator(op) {
 }
 
 function toTape() {
-
+    let msg = '';
+    if (bValue === '') {
+        msg = `${aValue} ${currentOperator}`;
+        tapeDisplay.textContent = msg;
+    }
 }
 
 function clearAll() {
