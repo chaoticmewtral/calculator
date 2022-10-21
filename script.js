@@ -136,6 +136,11 @@ function evaluate(e) {
         if (currentOperator = '') {
             return;
         }
+        secondOperand = num;
+        operate(currentOperator, firstOperand, secondOperand);
+        tapeText = `${firstOperand}  ${currentOperator}  ${secondOperand}  =`;
+        toTape(tapeText);
+        calcInput = 'ready';
     }
 }
 
@@ -186,5 +191,4 @@ function operate(operator, a, b) {
             result = divide(a, b);
     }
     toDisplay(result);
-    firstOperand = result;
 }
