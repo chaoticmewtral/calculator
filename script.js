@@ -115,8 +115,6 @@ function evaluate() {
     }
 }
 
-// meds are kicking in, so any code beyond this point could be sus
-
 // calculation functions - DO NOT EDIT --------------
 function add(a, b) {
     return parseInt(a) + parseInt(b);
