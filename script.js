@@ -18,7 +18,7 @@ operators.forEach((operator) => operator.addEventListener('click', () => setOper
 decimalButton.addEventListener('click', () => addDecimal());
 deleteButton.addEventListener('click', () => backSpace());
 clearButton.addEventListener('click', () => clearAll());
-equalsButton.addEventListener('click', () => evaluate());
+equalsButton.addEventListener('click', () => evaluate(e.key));
 window.addEventListener('keydown', (e) => getKeyValue(e.key));
 
 function getKeyValue(key) {
@@ -29,7 +29,7 @@ function getKeyValue(key) {
     } else if (key >= 0 || key <= 9) {
         toDisplay(key);
     } else if (key === 'Enter') {
-        evaluate();
+        evaluate(key);
     } else if (key === 'Delete' || key === 'Clear') {
         clearAll();
     } else if (key === 'Backspace') {
@@ -76,7 +76,7 @@ function setOperator(op) {
             toTape();
         } else {
         currentOperator = op;
-        evaluate();
+        evaluate('fromOp');
         }
     }
 }
@@ -90,7 +90,6 @@ function toTape(input) {
         msg = `${aValue.toString()} ${currentOperator.toString()}  ${bValue.toString()} = ${input}`;
         tapeDisplay.textContent = msg;
     }
-    console.log(msg);
 }
 
 function clearAll() {
@@ -102,16 +101,11 @@ function clearAll() {
     tapeDisplay.textContent = '';
 }
 
-function evaluate() {
-    if (currentOperator === '') {
-        return;
-    } else {
-        bValue = mainDisplay.textContent;
-        operate(currentOperator, aValue, bValue);
-        currentOperator = '';
-        bValue = '';
-        aValue = mainDisplay.textContent;
-        resetDisplay = true;
+function evaluate(from) {
+    if (from === 'Enter') {
+        
+    } else if (from === 'fromOp') {
+
     }
 }
 
@@ -148,16 +142,16 @@ function operate(operator, a, b) {
             result = multiply(a, b);
             break;
         case '/':
-            if (a === 0){
-                result = "You can't divide by 0!";
-                break;
+            if (a === '0'){
+                alert("You can't divide by 0!");
+                return;
             }
             result = divide(a, b);
             break;
         case '÷':
-            if (a === 0){
-                result = "You can't divide by 0!";
-                break;
+            if (a === '0'){
+                alert("You can't divide by 0!");
+                return;
             }
             result = divide(a, b);
     }
