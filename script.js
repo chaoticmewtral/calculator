@@ -18,7 +18,7 @@ operators.forEach((operator) => operator.addEventListener('click', () => setOper
 decimalButton.addEventListener('click', () => addDecimal());
 deleteButton.addEventListener('click', () => backSpace());
 clearButton.addEventListener('click', () => clearAll());
-equalsButton.addEventListener('click', () => evaluate(e.key));
+equalsButton.addEventListener('click', () => evaluate('Enter'));
 window.addEventListener('keydown', (e) => getKeyValue(e.key));
 
 function getKeyValue(key) {
@@ -75,8 +75,9 @@ function setOperator(op) {
             currentOperator = op;
             toTape();
         } else {
+        evaluate('setOp');
         currentOperator = op;
-        evaluate('fromOp');
+        return;
         }
     }
 }
@@ -102,10 +103,23 @@ function clearAll() {
 }
 
 function evaluate(from) {
-    if (from === 'Enter') {
-        
-    } else if (from === 'fromOp') {
-
+    console.log(from);
+    if (from = 'Enter') {
+        if (currentOperator === '') {
+            return;
+        } else {
+            bValue = mainDisplay.textContent;
+            operate(currentOperator, aValue, bValue);
+            currentOperator = '';
+            bValue = '';
+            aValue = mainDisplay.textContent;
+            resetDisplay = true;
+        }
+    } else if (from = 'setOp') {
+        bValue = mainDisplay.textContent;
+        operate(currentOperator, aValue, bValue);
+        bValue = '';
+        aValue = mainDisplay.textContent;
     }
 }
 
