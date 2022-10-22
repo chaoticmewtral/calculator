@@ -70,23 +70,36 @@ function setOperator(op) {
         currentOperator = op;
         toTape();
         resetDisplay = true;
+    } else {
+        if (resetDisplay) {
+            currentOperator = op;
+            toTape();
+        } else {
+        currentOperator = op;
+        evaluate();
+        }
     }
 }
 
-function toTape(result) {
-    let msg = '';
+function toTape(input) {
+    let msg;
     if (bValue === '') {
         msg = `${aValue} ${currentOperator}`;
         tapeDisplay.textContent = msg;
     } else {
-        msg = `${aValue}  ${currentOperator}  ${bValue} = ${result}`;
+        msg = `${aValue.toString()} ${currentOperator.toString()}  ${bValue.toString()} = ${input}`;
         tapeDisplay.textContent = msg;
     }
     console.log(msg);
 }
 
 function clearAll() {
-    console.log('Clear');
+    aValue = '';
+    bValue = '';
+    currentOperator = '';
+    resetDisplay = true;
+    mainDisplay.textContent = '0';
+    tapeDisplay.textContent = '';
 }
 
 function evaluate() {
@@ -94,7 +107,11 @@ function evaluate() {
         return;
     } else {
         bValue = mainDisplay.textContent;
-        console.log(`${currentOperator}, ${aValue}, ${bValue}`);
+        operate(currentOperator, aValue, bValue);
+        currentOperator = '';
+        bValue = '';
+        aValue = mainDisplay.textContent;
+        resetDisplay = true;
     }
 }
 
@@ -119,7 +136,6 @@ function divide(a, b) {
 
 function operate(operator, a, b) {
     let result;
-    let msg = `${a}  ${operator}  ${b} = ${result}`;
     switch(operator) {
         case '+':
             result = add(a, b);
@@ -147,5 +163,6 @@ function operate(operator, a, b) {
             }
             result = divide(a, b);
     }
-    toTape(msg);
+    toTape(result);
+    mainDisplay.textContent = result;
 }
