@@ -169,7 +169,7 @@ function operate(operator, a, b) {
             }
             result = divide(a, b);
     }
-    result = Math.round(result * 1000000) / 1000000;
+    result = Math.round(result * 10000000000) / 10000000000;
     toTape(result);
     mainDisplay.textContent = result;
 }
